@@ -49,6 +49,18 @@ def on_draw():
 
 
 @window.event
+def on_key_press(symbol, modifiers):
+    global pointCount, pointBatch
+    if symbol == pyglet.window.key.R:
+        points.clear()
+        pointObjects.clear()
+        initialPoints.clear()
+        pointCount = [0, 0, 0]
+        pointBatch = pyglet.graphics.Batch()
+        print('Left click to add 4 points, once added, left click for 100 iterations, right click for 1000 iterations, middle click for 10000 iterations\n')
+
+
+@window.event
 def on_mouse_press(x, y, button, modifiers):
     if len(points) < numpoints+1:
         if len(points) < numpoints:
